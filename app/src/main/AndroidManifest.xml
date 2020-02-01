@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.project.shadowing">
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"></uses-permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/main_icon"
+        android:label="@string/app_name"
+        android:launchMode="singleTop"
+        android:roundIcon="@drawable/main_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name="com.project.shadowing.MainPageActivity"
+            android:screenOrientation="portrait">  <!--세로 고정 -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="com.project.shadowing.EarPhoneIntentReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.HEADSET_PLUG" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.project.shadowing.MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.project.shadowing.PlayActivity"
+            android:screenOrientation="portrait"></activity>
+    </application>
+
+</manifest>
